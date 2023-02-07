@@ -1,19 +1,19 @@
-import shiki from 'shiki'
-import { CodePreview } from "./CodePreview"
+import shiki from "shiki";
+import { CodePreview } from "./CodePreview";
 
 interface GistContentProps {
-  gistUrl: string
+  gistUrl: string;
 }
 
 export async function GistContent({ gistUrl }: GistContentProps) {
-  const settingsResponse = await fetch(gistUrl)
-  const settings = await settingsResponse.text()
+  const settingsResponse = await fetch(gistUrl);
+  const settings = await settingsResponse.text();
 
   const highlighter = await shiki.getHighlighter({
-    theme: 'rose-pine-moon',
-  })
+    theme: "rose-pine-moon",
+  });
 
-  const code = highlighter.codeToHtml(settings, { lang: 'json' })
+  const code = highlighter.codeToHtml(settings, { lang: "json" });
 
-  return <CodePreview code={code} />
+  return <CodePreview code={code} pureContent={settings} />;
 }
