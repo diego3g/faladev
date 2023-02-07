@@ -15,5 +15,5 @@ export async function GistContent({ gistUrl }: GistContentProps) {
 
   const code = highlighter.codeToHtml(settings, { lang: "json" });
 
-  return <CodePreview code={code} pureContent={settings} />;
+  return <CodePreview code={code} raw={settings} />;
 }

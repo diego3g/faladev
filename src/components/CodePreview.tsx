@@ -9,14 +9,14 @@ const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"] });
 
 interface CodePreviewProps {
   code: string;
-  pureContent: string;
+  raw: string;
 }
 
-export function CodePreview({ code, pureContent }: CodePreviewProps) {
+export function CodePreview({ code, raw }: CodePreviewProps) {
   const [copy, setCopy] = useState("Copy to Clipboard");
 
   const handleCopyToClipboard = () => {
-    navigator.clipboard.writeText(pureContent);
+    navigator.clipboard.writeText(raw);
     setCopy("Copied to Clipboard!");
     setTimeout(() => setCopy("Copy to Clipboard"), 2000);
   };
