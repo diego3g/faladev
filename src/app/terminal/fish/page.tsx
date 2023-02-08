@@ -12,7 +12,6 @@ end
 set SPACEFISH_PROMPT_ADD_NEWLINE false
 
 # Deno
-export DENO_DEPLOY_TOKEN="ddp_duwr9g1UM65t6BkaWntsOU64DRZhXk2gOIF4"
 export DENO_INSTALL="/Users/diegofernandes/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="/Users/diegofernandes/.rover/bin:$PATH"
