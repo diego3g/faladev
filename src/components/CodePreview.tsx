@@ -13,25 +13,33 @@ interface CodePreviewProps {
 }
 
 export function CodePreview({ code, raw }: CodePreviewProps) {
-  const [copy, setCopy] = useState("Copy to Clipboard");
+  const [hasCopiedToClipboard, setCopiedToClipboard] = useState(false);
 
   const handleCopyToClipboard = () => {
     if (!raw) return;
     navigator.clipboard.writeText(raw);
-    setCopy("Copied to Clipboard!");
-    setTimeout(() => setCopy("Copy to Clipboard"), 2000);
+    setCopiedToClipboard(true);
+    setTimeout(() => setCopiedToClipboard(false), 2000);
   };
 
   return (
     <>
-      {/*  TODO: Conditionally render Clipboard button to a selected group of files */}
       {raw && (
         <button
           onClick={handleCopyToClipboard}
-          className="absolute flex items-center right-0 mx-8 gap-x-2 font-semibold z-30 bg-[#2B283B] px-3 py-2 rounded-md text-[#8F8CA8]"
+          className={`absolute flex items-center right-0 mx-8 gap-x-2 font-semibold z-30 bg-[#2B283B] px-3 py-2 rounded-md text-[#8F8CA8] ${hasCopiedToClipboard ? "ring-2 ring-[#065F46]" : ""}`}
         >
-          <CopyIcon size={16} />
-          {copy}
+          {hasCopiedToClipboard ? (
+            <>
+              <CheckIcon size={16} color="#065F46" />
+              Copied to Clipboard!
+            </>
+          ): (
+            <>
+              <CopyIcon size={16} />
+              Copy to Clipboard
+            </>
+          )}
         </button>
       )}
       <div

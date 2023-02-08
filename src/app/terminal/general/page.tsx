@@ -28,7 +28,7 @@ Theme: https://github.com/austintraver/warp-theme/blob/main/base16_rose_pine_moo
 
 export default async function General() {
   const highlighter = await shiki.getHighlighter({
-    theme: "rose-pine-moon",
+    theme: 'rose-pine-moon',
   });
 
   const code = highlighter.codeToHtml(markdown, { lang: 'md' })
