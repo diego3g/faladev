@@ -1,9 +1,9 @@
-import { CodePreview } from "@/components/CodePreview";
-import shiki from "shiki";
+import { CodePreview } from '@/components/CodePreview'
+import shiki from 'shiki'
 
 export const metadata = {
-  title: "Terminal",
-};
+  title: 'Terminal',
+}
 
 const markdown = `
 # General
@@ -24,14 +24,14 @@ Warp: https://www.warp.dev/
 For the theme, I chose Rosé Pine Moon variant: 
 
 Theme: https://github.com/austintraver/warp-theme/blob/main/base16_rose_pine_moon.yaml
-`.trim();
+`.trim()
 
 export default async function General() {
   const highlighter = await shiki.getHighlighter({
     theme: "rose-pine-moon",
   });
 
-  const code = highlighter.codeToHtml(markdown, { lang: "md" });
+  const code = highlighter.codeToHtml(markdown, { lang: 'md' })
 
-  return <CodePreview code={code} />;
+  return <CodePreview code={code} />
 }
