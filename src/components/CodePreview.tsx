@@ -13,14 +13,14 @@ interface CodePreviewProps {
 }
 
 export function CodePreview({ code, raw }: CodePreviewProps) {
-  const [hasCopiedToClipboard, setCopiedToClipboard] = useState(false);
+  const [hasCopiedToClipboard, setCopiedToClipboard] = useState(false)
 
   const handleCopyToClipboard = () => {
-    if (!raw) return;
-    navigator.clipboard.writeText(raw);
-    setCopiedToClipboard(true);
-    setTimeout(() => setCopiedToClipboard(false), 2000);
-  };
+    if (!raw) return
+    navigator.clipboard.writeText(raw)
+    setCopiedToClipboard(true)
+    setTimeout(() => setCopiedToClipboard(false), 2000)
+  }
 
   return (
     <>
