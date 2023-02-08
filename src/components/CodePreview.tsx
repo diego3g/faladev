@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from "react"
-import clsx from 'clsx'
 import { JetBrains_Mono } from "@next/font/google"
 
 import { Copy as CopyIcon, CheckCircle2 as CheckIcon } from "lucide-react"
