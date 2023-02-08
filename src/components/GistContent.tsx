@@ -1,4 +1,4 @@
-import shiki from 'shiki'
+import shiki from "shiki"
 import { CodePreview } from "./CodePreview"
 
 interface GistContentProps {
@@ -15,5 +15,5 @@ export async function GistContent({ gistUrl }: GistContentProps) {
 
   const code = highlighter.codeToHtml(settings, { lang: 'json' })
 
-  return <CodePreview code={code} />
+  return <CodePreview code={code} raw={settings} />
 }

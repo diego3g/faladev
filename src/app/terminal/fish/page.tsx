@@ -23,5 +23,5 @@ export default async function FishConfig() {
 
   const code = highlighter.codeToHtml(fishConfig, { lang: 'fish' })
 
-  return <CodePreview code={code} />
+  return <CodePreview code={code} raw={fishConfig} />
 }
