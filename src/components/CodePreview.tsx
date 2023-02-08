@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from "react"
+import clsx from 'clsx'
 import { JetBrains_Mono } from "@next/font/google"
 
 import { Copy as CopyIcon, CheckCircle2 as CheckIcon } from "lucide-react"
@@ -27,17 +28,18 @@ export function CodePreview({ code, raw }: CodePreviewProps) {
       {raw && (
         <button
           onClick={handleCopyToClipboard}
-          className={`absolute flex items-center right-0 mx-8 gap-x-2 font-semibold z-30 bg-[#2B283B] px-3 py-2 rounded-md text-[#8F8CA8] ${hasCopiedToClipboard ? "ring-2 ring-[#065F46]" : ""}`}
+          data-copied={hasCopiedToClipboard}
+          className="absolute flex items-center right-0 mx-8 gap-x-2 text-sm font-medium z-30 bg-[#2a273f] px-3 py-2 rounded-md text-[#E0DEF2] ring-2 ring-[#2b283b] data-[copied=true]:ring-emerald-600"
         >
           {hasCopiedToClipboard ? (
             <>
-              <CheckIcon size={16} color="#065F46" />
-              Copied to Clipboard!
+              <CheckIcon size={16} className="text-emerald-400" />
+              <span className="w-32">Copied!</span>
             </>
           ): (
             <>
               <CopyIcon size={16} />
-              Copy to Clipboard
+              <span className="w-32">Copy to Clipboard</span>
             </>
           )}
         </button>
