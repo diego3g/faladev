@@ -13,6 +13,8 @@ const markdown = `
 - Gigabyte Z390M Gaming
 - Cooler Master ATX 500W 80 Plus
 - 2x Corsair SSD MP510 480GB NVMe
+- Gigabyte NVIDIA GeForce RTX 2060 6G
+
 
 ## Peripherals
 
