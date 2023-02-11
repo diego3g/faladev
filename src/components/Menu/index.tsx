@@ -1,4 +1,7 @@
+"use client"
+
 import { Bug, Cog, Files, FlaskConical, GitFork, Monitor, Puzzle, Search, User } from 'lucide-react'
+import { Dropdown } from './Dropdown'
 import { MenuButton } from './MenuButton'
 
 export function Menu() {
@@ -14,7 +17,11 @@ export function Menu() {
         <MenuButton icon={FlaskConical} />
       </div>
       <div className="flex flex-col items-center">
-        <MenuButton icon={User} />
+        <Dropdown>
+          <button type="button">
+            <MenuButton icon={User} />
+          </button>
+        </Dropdown>
         <MenuButton icon={Cog} />
       </div>
     </div>
