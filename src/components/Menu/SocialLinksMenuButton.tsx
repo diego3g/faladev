@@ -7,16 +7,12 @@ import {
   Linkedin,
   Rocket,
   Twitter,
+  User,
   Youtube
 } from 'lucide-react'
+import { MenuButton } from './MenuButton'
 
-interface DropdownProps {
-  children: React.ReactNode
-}
-
-export function Dropdown({
-  children
-}: DropdownProps) {
+export function SocialLinksMenuButton() {
   const socialLinks = [
     {
       name: 'github',
@@ -52,8 +48,8 @@ export function Dropdown({
 
   return (
     <DropdownMenu.Root>
-      <DropdownMenu.Trigger asChild>
-        {children}
+      <DropdownMenu.Trigger>
+        <MenuButton icon={User} />
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
