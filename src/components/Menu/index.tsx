@@ -1,5 +1,3 @@
-"use client"
-
 import { Bug, Cog, Files, FlaskConical, GitFork, Monitor, Puzzle, Search, User } from 'lucide-react'
 import { Dropdown } from './Dropdown'
 import { MenuButton } from './MenuButton'
