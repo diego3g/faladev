@@ -1,5 +1,6 @@
-import { Bug, Cog, Files, FlaskConical, GitFork, Monitor, Puzzle, Search, User } from 'lucide-react'
+import { Bug, Cog, Files, FlaskConical, GitFork, Monitor, Puzzle, Search } from 'lucide-react'
 import { MenuButton } from './MenuButton'
+import { SocialLinksMenuButton } from './SocialLinksMenuButton'
 
 export function Menu() {
   return (
@@ -14,7 +15,7 @@ export function Menu() {
         <MenuButton icon={FlaskConical} />
       </div>
       <div className="flex flex-col items-center">
-        <MenuButton icon={User} />
+        <SocialLinksMenuButton />
         <MenuButton icon={Cog} />
       </div>
     </div>
