@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
-import { useTabs } from "@/hooks/useTabs";
-import { X } from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { RemoveTab } from "./RemoveTab";
+import { useTabs } from '@/hooks/useTabs';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { RemoveTab } from './RemoveTab';
 
 export function Tabs() {
   const { tabs } = useTabs();

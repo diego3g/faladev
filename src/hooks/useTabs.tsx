@@ -1,7 +1,7 @@
-"use client";
-import { createContext, useContext, useState } from "react";
-import { LinkProps } from "next/link";
-import { usePathname } from "next/navigation";
+'use client';
+import { createContext, useContext, useState } from 'react';
+import { LinkProps } from 'next/link';
+import { usePathname } from 'next/navigation';
 
 type TabsType = {
   children: React.ReactNode[];

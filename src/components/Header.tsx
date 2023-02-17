@@ -1,5 +1,5 @@
-"use client";
-import { useTabs } from "@/hooks/useTabs";
+'use client';
+import { useTabs } from '@/hooks/useTabs';
 
 export function Header() {
   const { getActiveTabName } = useTabs();

@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { JetBrains_Mono } from "@next/font/google";
+import { useState } from 'react';
+import { JetBrains_Mono } from '@next/font/google';
 
-import { Copy as CopyIcon, CheckCircle2 as CheckIcon } from "lucide-react";
+import { Copy as CopyIcon, CheckCircle2 as CheckIcon } from 'lucide-react';
 
-const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"] });
+const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
 interface CodePreviewProps {
   code: string;

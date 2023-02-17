@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { ReactNode, useEffect } from "react";
-import Link, { LinkProps } from "next/link";
-import { usePathname } from "next/navigation";
-import { useTabs } from "@/hooks/useTabs";
+import { ReactNode, useEffect } from 'react';
+import Link, { LinkProps } from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useTabs } from '@/hooks/useTabs';
 
 interface FileProps extends LinkProps {
   children: ReactNode[];

@@ -1,8 +1,8 @@
-"use client";
-import { useTabs } from "@/hooks/useTabs";
-import { RemoveTab } from "../Tabs/RemoveTab";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+'use client';
+import { useTabs } from '@/hooks/useTabs';
+import { RemoveTab } from '../Tabs/RemoveTab';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 export function OpenEditorsSubMenu() {
   const { tabs } = useTabs();

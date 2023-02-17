@@ -1,7 +1,7 @@
-"use client";
-import Link from "next/link";
-import { X } from "lucide-react";
-import { useTabs } from "@/hooks/useTabs";
+'use client';
+import Link from 'next/link';
+import { X } from 'lucide-react';
+import { useTabs } from '@/hooks/useTabs';
 
 type RemoveTabProps = {
   isActive: boolean;

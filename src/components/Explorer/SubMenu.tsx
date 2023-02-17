@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import * as Collapsible from "@radix-ui/react-collapsible";
-import { ChevronDown, ChevronRight, Folder as FolderIcon } from "lucide-react";
-import { ReactNode, useState } from "react";
+import * as Collapsible from '@radix-ui/react-collapsible';
+import { ChevronDown, ChevronRight, Folder as FolderIcon } from 'lucide-react';
+import { ReactNode, useState } from 'react';
 
 interface FolderProps {
   title: string;

@@ -1,27 +1,27 @@
-import "../styles/global.css";
+import '../styles/global.css';
 
-import { Inter } from "@next/font/google";
+import { Inter } from '@next/font/google';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
-import { Menu } from "@/components/Menu";
-import { Header } from "@/components/Header";
-import { Explorer } from "@/components/Explorer";
-import { Footer } from "@/components/Footer";
-import { Tabs } from "@/components/Tabs";
-import { TabsProvider } from "@/hooks/useTabs";
+import { Menu } from '@/components/Menu';
+import { Header } from '@/components/Header';
+import { Explorer } from '@/components/Explorer';
+import { Footer } from '@/components/Footer';
+import { Tabs } from '@/components/Tabs';
+import { TabsProvider } from '@/hooks/useTabs';
 
 export const metadata = {
   title: {
-    default: "Diego Fernandes",
-    template: "%s | Diego Fernandes",
+    default: 'Diego Fernandes',
+    template: '%s | Diego Fernandes',
   },
   robots: {
     index: true,
     follow: true,
   },
   description:
-    "CTO at @Rocketseat. Passionate about education and changing people's lives through programming.",
+    'CTO at @Rocketseat. Passionate about education and changing people's lives through programming.',
 };
 
 export default function RootLayout({

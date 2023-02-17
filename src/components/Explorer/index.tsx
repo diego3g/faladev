@@ -7,11 +7,11 @@ import {
   Joystick,
   MoreHorizontal,
   Terminal,
-} from "lucide-react";
-import { OpenEditorsSubMenu } from "../Tabs/OpenEditorsSubMenu";
-import { File } from "./File";
-import { Folder } from "./Folder";
-import { SubMenu } from "./SubMenu";
+} from 'lucide-react';
+import { OpenEditorsSubMenu } from '../Tabs/OpenEditorsSubMenu';
+import { File } from './File';
+import { Folder } from './Folder';
+import { SubMenu } from './SubMenu';
 
 export function Explorer() {
   return (
