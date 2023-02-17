@@ -70,5 +70,5 @@ export function Explorer() {
         </SubMenu>
       </nav>
     </div>
-  );
+  )
 }

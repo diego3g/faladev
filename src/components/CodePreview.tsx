@@ -1,26 +1,26 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import { JetBrains_Mono } from '@next/font/google';
+import { useState } from "react"
+import { JetBrains_Mono } from "@next/font/google"
 
-import { Copy as CopyIcon, CheckCircle2 as CheckIcon } from 'lucide-react';
+import { Copy as CopyIcon, CheckCircle2 as CheckIcon } from "lucide-react"
 
-const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
+const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] })
 
 interface CodePreviewProps {
-  code: string;
-  raw?: string;
+  code: string
+  raw?: string
 }
 
 export function CodePreview({ code, raw }: CodePreviewProps) {
-  const [hasCopiedToClipboard, setCopiedToClipboard] = useState(false);
+  const [hasCopiedToClipboard, setCopiedToClipboard] = useState(false)
 
   const handleCopyToClipboard = () => {
-    if (!raw) return;
-    navigator.clipboard.writeText(raw);
-    setCopiedToClipboard(true);
-    setTimeout(() => setCopiedToClipboard(false), 2000);
-  };
+    if (!raw) return
+    navigator.clipboard.writeText(raw)
+    setCopiedToClipboard(true)
+    setTimeout(() => setCopiedToClipboard(false), 2000)
+  }
 
   return (
     <>
@@ -50,5 +50,5 @@ export function CodePreview({ code, raw }: CodePreviewProps) {
         dangerouslySetInnerHTML={{ __html: code }}
       />
     </>
-  );
+  )
 }

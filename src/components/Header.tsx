@@ -16,5 +16,5 @@ export function Header() {
       </span>
       <div className="w-14">&nbsp;</div>
     </div>
-  );
+  )
 }
