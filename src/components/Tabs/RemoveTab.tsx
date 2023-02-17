@@ -14,7 +14,9 @@ export function RemoveTab({ isActive, index }: RemoveTabProps) {
   if (isActive) {
     return (
       <Link
-        onClick={() => removeTab(index)}
+        onClick={() => {
+          removeTab(index);
+        }}
         href={index - 1 >= 0 ? tabs[index - 1].href.toString() : "/"}
         className="w-[20px] h-[20px] flex justify-center items-center rounded hover:bg-[#817c9c26]"
       >
@@ -28,7 +30,7 @@ export function RemoveTab({ isActive, index }: RemoveTabProps) {
   }
 
   return (
-    <button
+    <a
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -41,6 +43,6 @@ export function RemoveTab({ isActive, index }: RemoveTabProps) {
         className="data-[active=true]:text-white"
         size={16}
       />
-    </button>
+    </a>
   );
 }

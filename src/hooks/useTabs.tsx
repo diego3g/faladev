@@ -1,7 +1,8 @@
-'use client';
+"use client";
 import { createContext, useContext, useState } from 'react';
 import { LinkProps } from 'next/link';
 import { usePathname } from 'next/navigation';
+import { explorerFiles } from '@/components/Explorer';
 
 type TabsType = {
   children: React.ReactNode[];
@@ -19,7 +20,16 @@ const TabsContext = createContext({} as TabsContextProps);
 export function TabsProvider({ children }: { children: React.ReactNode }) {
   const pathName = usePathname();
 
-  const [tabs, setTabs] = useState<TabsType[]>([]);
+  const [tabs, setTabs] = useState<TabsType[]>(() => {
+    if (pathName) {
+      const openTab = explorerFiles[pathName];
+      if (openTab) {
+        return [{ children: openTab, href: pathName }];
+      }
+    }
+
+    return [];
+  });
 
   const addTab = (tab: TabsType) => {
     if (tabs.map((t) => t.href).includes(tab.href)) {

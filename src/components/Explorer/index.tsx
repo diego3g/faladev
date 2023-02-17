@@ -13,6 +13,15 @@ import { File } from './File';
 import { Folder } from './Folder';
 import { SubMenu } from './SubMenu';
 
+export const explorerFiles: { [key: string]: React.ReactNode[] } = {
+  '/vscode/settings': [<FileJson key={0} size={16} />, <>settings.json</>],
+  '/vscode/extensions': [<FileJson key={1} size={16} />, <>extensions.json</>],
+  '/terminal/general': [<Terminal key={2} size={16} />, <>General</>],
+  '/terminal/fish': [<Cog key={3} size={16} />, <>config.fish</>],
+  '/others/dev-setup': [<Cpu key={4} size={16} />, <>dev.setup</>],
+  '/others/gaming-setup': [<Joystick key={5} size={16} />, <>gaming.setup</>],
+};
+
 export function Explorer() {
   return (
     <div className="py-2 px-4 text-[#8F8CA8]">

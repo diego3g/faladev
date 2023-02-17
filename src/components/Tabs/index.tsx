@@ -28,9 +28,9 @@ export function Tabs() {
             >
               {tab.children[1]}
             </span>
-            <div className="w-7 flex items-center">
+            <span className="w-7 flex items-center">
               <RemoveTab isActive={isActive} index={index} />
-            </div>
+            </span>
           </Link>
         );
       })}

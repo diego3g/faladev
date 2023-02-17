@@ -1,6 +1,6 @@
 "use client"
 
-import { ReactNode, useEffect } from 'react';
+import { ReactNode } from 'react';
 import Link, { LinkProps } from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTabs } from '@/hooks/useTabs';
@@ -14,12 +14,6 @@ export function File(props: FileProps) {
   const pathName = usePathname();
 
   const isCurrentActive = pathName === props.href;
-
-  useEffect(() => {
-    if (isCurrentActive) {
-      addTab(props);
-    }
-  }, [addTab, isCurrentActive, props]);
 
   return (
     <Link
