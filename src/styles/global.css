@@ -2,9 +2,19 @@
 @tailwind utilities;
 @tailwind components;
 
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
 code {
   counter-reset: step;
   counter-increment: step 0;
+}
+
+code .line {
+  padding-right: 1.5rem;
 }
 
 code .line::before {

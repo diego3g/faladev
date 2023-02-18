@@ -29,18 +29,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <head />
-      <body className="bg-[#7F7FD5] bg-app">
-        <div className="z-10 relative h-screen p-20 flex items-center justify-center">
-          <div className="bg-[#232135] overflow-hidden border border-[#72707D] w-full max-w-[1480px] aspect-video shadow-md shadow-black/20 rounded-lg grid grid-rows-layout">
+      <body className="bg-[#7F7FD5] bg-app overflow-hidden">
+        <div className="h-full flex items-center justify-center p-8">
+          <div className="h-full bg-[#232135] overflow-hidden border border-[#72707D] w-full max-w-[1480px] shadow-md shadow-black/20 rounded-lg grid grid-rows-layout">
             <Header />
 
-            <div className="grid grid-cols-editor max-h-full">
+            <div className="flex items-start">
               <Menu />
               <Explorer />
 
-              <div className="h-full relative">
-                {children}
-              </div>
+              <div className="flex-1 h-full relative">{children}</div>
             </div>
 
             <Footer />
