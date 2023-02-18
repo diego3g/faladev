@@ -12,6 +12,7 @@ specifiers:
   classnames: ^2.3.2
   eslint: 8.33.0
   eslint-config-next: 13.1.6
+  jotai: ^2.0.2
   lucide-react: ^0.112.0
   next: 13.1.7-canary.7
   postcss: ^8.4.21
@@ -35,6 +36,7 @@ dependencies:
   classnames: 2.3.2
   eslint: 8.33.0
   eslint-config-next: 13.1.6_4vsywjlpuriuw3tl5oq6zy5a64
+  jotai: 2.0.2_react@18.2.0
   lucide-react: 0.112.0_react@18.2.0
   next: 13.1.7-canary.7_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
@@ -1989,6 +1991,18 @@ packages:
 
   /isexe/2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
+    dev: false
+
+  /jotai/2.0.2_react@18.2.0:
+    resolution: {integrity: sha512-0yOked08Swa84LUbBjtj7ZLZrE05n3u50rHeZ+bsT86thUjcy0kFgQz9GmEWhYbQDFoT1G8Ww6edSj/MBJHO4A==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      react: '>=17.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /js-sdsl/4.3.0:
