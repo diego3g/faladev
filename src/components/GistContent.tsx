@@ -1,3 +1,4 @@
+import { getTheme } from "@/utils/getTheme"
 import shiki from "shiki"
 import { CodePreview } from "./CodePreview"
 
@@ -10,7 +11,7 @@ export async function GistContent({ gistUrl }: GistContentProps) {
   const settings = await settingsResponse.text()
 
   const highlighter = await shiki.getHighlighter({
-    theme: 'rose-pine-moon',
+    theme: await getTheme()
   })
 
   const code = highlighter.codeToHtml(settings, { lang: 'json' })
