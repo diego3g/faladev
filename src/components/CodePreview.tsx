@@ -46,7 +46,7 @@ export function CodePreview({ code, raw }: CodePreviewProps) {
       <div
         id="shiki-code"
         style={jetBrainsMono.style}
-        className="absolute inset-0 mt-9 overflow-auto leading-relaxed scrollbar scrollbar-thumb-[#2B283B] scrollbar-track-transparent"
+        className="absolute inset-0 overflow-auto leading-relaxed scrollbar scrollbar-thumb-[#2B283B] scrollbar-track-transparent"
         dangerouslySetInnerHTML={{ __html: code }}
       />
     </>

@@ -1,23 +1,23 @@
-'use client';
-import Link from 'next/link';
-import { X } from 'lucide-react';
-import { useTabs } from '@/hooks/useTabs';
+'use client'
+import Link from 'next/link'
+import { X } from 'lucide-react'
+import { useOpenFiles } from '@/hooks/useOpenFiles'
 
-type RemoveTabProps = {
-  isActive: boolean;
-  index: number;
+type CloseFileButtonProps = {
+  isActive: boolean
+  index: number
 };
 
-export function RemoveTab({ isActive, index }: RemoveTabProps) {
-  const { tabs, removeTab } = useTabs();
+export function CloseFileButton({ isActive, index }: CloseFileButtonProps) {
+  const { openFiles, closeFile } = useOpenFiles();
 
   if (isActive) {
     return (
       <Link
         onClick={() => {
-          removeTab(index);
+          closeFile(index);
         }}
-        href={index - 1 >= 0 ? tabs[index - 1].href.toString() : "/"}
+        href={index - 1 >= 0 ? openFiles[index - 1] : "/"}
         className="w-[20px] h-[20px] flex justify-center items-center rounded hover:bg-[#817c9c26]"
       >
         <X
@@ -26,7 +26,7 @@ export function RemoveTab({ isActive, index }: RemoveTabProps) {
           size={16}
         />
       </Link>
-    );
+    )
   }
 
   return (
@@ -34,7 +34,7 @@ export function RemoveTab({ isActive, index }: RemoveTabProps) {
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        removeTab(index);
+        closeFile(index);
       }}
       className="w-[20px] h-[20px] flex justify-center items-center rounded hover:bg-[#817c9c26]"
     >
@@ -44,5 +44,5 @@ export function RemoveTab({ isActive, index }: RemoveTabProps) {
         size={16}
       />
     </a>
-  );
+  )
 }

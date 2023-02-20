@@ -8,18 +8,35 @@ import {
   MoreHorizontal,
   Terminal,
 } from 'lucide-react';
-import { OpenEditorsSubMenu } from '../Tabs/OpenEditorsSubMenu';
+import { OpenFilesSubMenu } from '../Tabs/OpenFilesSubMenu';
 import { File } from './File';
 import { Folder } from './Folder';
 import { SubMenu } from './SubMenu';
 
-export const explorerFiles: { [key: string]: React.ReactNode[] } = {
-  '/vscode/settings': [<FileJson key={0} size={16} />, <>settings.json</>],
-  '/vscode/extensions': [<FileJson key={1} size={16} />, <>extensions.json</>],
-  '/terminal/general': [<Terminal key={2} size={16} />, <>General</>],
-  '/terminal/fish': [<Cog key={3} size={16} />, <>config.fish</>],
-  '/others/dev-setup': [<Cpu key={4} size={16} />, <>dev.setup</>],
-  '/others/gaming-setup': [<Joystick key={5} size={16} />, <>gaming.setup</>],
+export type FileType = {
+  title: string;
+  icon: React.ReactNode;
+};
+
+export const explorerFiles: Record<string, FileType> = {
+  "/vscode/settings": {
+    icon: <FileJson size={16} />,
+    title: "settings.json",
+  },
+  "/vscode/extensions": {
+    icon: <FileJson size={16} />,
+    title: "extensions.json",
+  },
+  "/terminal/general": {
+    icon: <Terminal size={16} />,
+    title: "General",
+  },
+  "/terminal/fish": { icon: <Cog size={16} />, title: "config.fish" },
+  "/others/dev-setup": { icon: <Cpu size={16} />, title: "dev.setup" },
+  "/others/gaming-setup": {
+    icon: <Joystick size={16} />,
+    title: "gaming.setup",
+  },
 };
 
 export function Explorer() {
@@ -32,7 +49,7 @@ export function Explorer() {
 
       <nav className="mt-4 flex flex-col">
         <SubMenu title="OPEN EDITORS">
-          <OpenEditorsSubMenu />
+          <OpenFilesSubMenu />
         </SubMenu>
 
         <SubMenu defaultOpen title="FALA-DEV">
