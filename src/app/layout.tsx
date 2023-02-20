@@ -21,7 +21,7 @@ export const metadata = {
     follow: true,
   },
   description: "CTO at @Rocketseat. Passionate about education and changing people's lives through programming.",
-};
+}
 
 export default function RootLayout({
   children,

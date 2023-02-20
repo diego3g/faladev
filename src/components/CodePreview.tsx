@@ -35,7 +35,7 @@ export function CodePreview({ code, raw }: CodePreviewProps) {
               <CheckIcon size={16} className="text-emerald-400" />
               <span className="w-32">Copied!</span>
             </>
-          ) : (
+          ): (
             <>
               <CopyIcon size={16} />
               <span className="w-32">Copy to Clipboard</span>

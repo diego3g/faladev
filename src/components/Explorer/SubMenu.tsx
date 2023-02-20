@@ -4,13 +4,13 @@ import * as Collapsible from '@radix-ui/react-collapsible';
 import { ChevronDown, ChevronRight, Folder as FolderIcon } from 'lucide-react';
 import { ReactNode, useState } from 'react';
 
-interface FolderProps {
+interface SubMenuProps {
   title: string;
   children: ReactNode;
   defaultOpen?: boolean;
 }
 
-export function SubMenu({ title, children, defaultOpen = false }: FolderProps) {
+export function SubMenu({ title, children, defaultOpen = false }: SubMenuProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
