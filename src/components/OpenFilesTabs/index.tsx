@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useOpenFiles } from '@/hooks/useOpenFiles'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { explorerFiles } from '../Explorer'
-import { CloseFileButton } from './CloseFileButton'
+import { useOpenFiles } from "@/hooks/useOpenFiles";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { explorerFiles } from "../Explorer";
+import { CloseFileButton } from "./CloseFileButton";
 
-export function Tabs() {
+export function OpenFilesTabs() {
   const { openFiles } = useOpenFiles();
   const pathName = usePathname();
 
@@ -40,8 +40,8 @@ export function Tabs() {
               <CloseFileButton isActive={isActive} index={index} />
             </span>
           </div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }

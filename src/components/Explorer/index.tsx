@@ -8,7 +8,7 @@ import {
   MoreHorizontal,
   Terminal,
 } from 'lucide-react';
-import { OpenFilesSubMenu } from '../Tabs/OpenFilesSubMenu';
+import { OpenFilesSubMenu } from '../OpenFilesTabs/OpenFilesSubMenu';
 import { File } from './File';
 import { Folder } from './Folder';
 import { SubMenu } from './SubMenu';

@@ -8,7 +8,7 @@ import { Menu } from '@/components/Menu'
 import { Header } from '@/components/Header'
 import { Explorer } from '@/components/Explorer'
 import { Footer } from '@/components/Footer'
-import { Tabs } from '@/components/Tabs'
+import { OpenFilesTabs } from '@/components/OpenFilesTabs'
 import { OpenFilesProvider } from '@/hooks/useOpenFiles'
 
 export const metadata = {
@@ -42,7 +42,7 @@ export default function RootLayout({
                 <Explorer />
 
                 <div className="h-full relative flex flex-col">
-                  <Tabs />
+                  <OpenFilesTabs />
                   <div className="h-full relative">{children}</div>
                 </div>
               </div>
