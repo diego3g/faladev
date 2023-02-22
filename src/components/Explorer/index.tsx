@@ -12,41 +12,41 @@ export function Explorer() {
 
       <nav className="mt-4 flex flex-col">
         <Folder defaultOpen title="Visual Studio Code">
-          {/* <File href="/vscode/general">
+          {/* <File href="/explorer/vscode/general">
             <Code2 size={16} />
             General
           </File> */}
-          <File href="/vscode/settings">
+          <File href="/explorer/vscode/settings">
             <FileJson size={16} />
             settings.json
           </File>
-          <File href="/vscode/extensions">
+          <File href="/explorer/vscode/extensions">
             <FileJson size={16} />
             extensions.json
           </File>
         </Folder>
 
         <Folder title="Terminal">
-          <File href="/terminal/general">
+          <File href="/explorer/terminal/general">
             <Terminal size={16} />
             General
           </File>
-          <File href="/terminal/fish">
+          <File href="/explorer/terminal/fish">
             <Cog size={16} />
             config.fish
           </File>
         </Folder>
 
         <Folder title="Others">
-          <File href="/others/dev-setup">
+          <File href="/explorer/others/dev-setup">
             <Cpu size={16} />
             dev.setup
           </File>
-          <File href="/others/gaming-setup">
+          <File href="/explorer/others/gaming-setup">
             <Joystick size={16} />
             gaming.setup
           </File>
-          {/* <File href="/others/recording-setup">
+          {/* <File href="/explorer/others/recording-setup">
             <Film size={16} />
             recording.setup
           </File> */}

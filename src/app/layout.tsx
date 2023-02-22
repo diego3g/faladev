@@ -6,7 +6,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 import { Menu } from '@/components/Menu'
 import { Header } from '@/components/Header'
-import { Explorer } from '@/components/Explorer'
 import { Footer } from '@/components/Footer'
 
 export const metadata = {
@@ -36,11 +35,8 @@ export default function RootLayout({
 
             <div className="grid grid-cols-editor max-h-full">
               <Menu />
-              <Explorer />
 
-              <div className="h-full relative">
-                {children}
-              </div>
+              {children}
             </div>
 
             <Footer />
