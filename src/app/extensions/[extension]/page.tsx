@@ -38,6 +38,10 @@ export default async function ExtensionDetails({
 
   const response: ExtensionsAPIResponseType = await data.json();
 
+  if (!response || !response.results || !response.results[0].extensions || !response.results[0].extensions[0]) {
+    return <div></div>;
+  }
+
   const extension = response.results[0].extensions[0];
 
   const detailFetch = await fetch(
