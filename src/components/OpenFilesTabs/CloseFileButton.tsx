@@ -30,8 +30,10 @@ export function CloseFileButton({ isActive, index }: CloseFileButtonProps) {
   }
 
   return (
-    <button
-      onClick={() => {
+    <a
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
         closeFile(index);
       }}
       className="w-[20px] h-[20px] flex justify-center items-center rounded hover:bg-[#817c9c26]"
@@ -41,6 +43,6 @@ export function CloseFileButton({ isActive, index }: CloseFileButtonProps) {
         className="data-[active=true]:text-white"
         size={16}
       />
-    </button>
+    </a>
   )
 }

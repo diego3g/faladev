@@ -28,7 +28,7 @@ export function OpenFilesProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    setOpenFiles([...openFiles, file]);
+    setOpenFiles(state => [...state, file]);
   };
 
   const closeFile = (fileIndex: number) => {
