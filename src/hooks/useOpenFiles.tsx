@@ -15,14 +15,17 @@ const OpenFilesContext = createContext({} as OpenFilesContextProps);
 export function OpenFilesProvider({ children }: { children: React.ReactNode }) {
   const pathName = usePathname();
 
-  const [openFiles, setOpenFiles] = useState<Array<keyof typeof explorerFiles>>(() => {
-    if (pathName && pathName !== '/') {
-      return [pathName];
+  const [openFiles, setOpenFiles] = useState<string[]>(() => {
+    if (pathName) {
+      const openTab = explorerFiles[pathName];
+      if (openTab) {
+        return [pathName];
+      }
     }
 
     return [];
   });
-
+  
   const markFileAsOpen = (file: string) => {
     if (openFiles.includes(file)) {
       return;
