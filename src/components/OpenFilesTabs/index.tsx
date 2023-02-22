@@ -16,11 +16,7 @@ export function OpenFilesTabs() {
         const isActive = pathName === openFile;
 
         const file = explorerFiles[openFile];
-
-        if (!file) {
-          return <></>;
-        }
-
+        
         return (
           <div
             key={index}

@@ -1,6 +1,5 @@
 "use client";
-import { createContext, useContext, useEffect, useState } from "react";
-import { LinkProps } from "next/link";
+import { createContext, useContext, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { explorerFiles, FileType } from "@/components/Explorer";
 
@@ -8,7 +7,7 @@ type OpenFilesContextProps = {
   openFiles: string[];
   markFileAsOpen: (tab: string) => void;
   closeFile: (tabIndex: number) => void;
-  currentOpenFile: () => FileType | null;
+  currentOpenFile: FileType | null;
 };
 
 const OpenFilesContext = createContext({} as OpenFilesContextProps);
@@ -16,12 +15,9 @@ const OpenFilesContext = createContext({} as OpenFilesContextProps);
 export function OpenFilesProvider({ children }: { children: React.ReactNode }) {
   const pathName = usePathname();
 
-  const [openFiles, setOpenFiles] = useState<string[]>(() => {
-    if (pathName) {
-      const openTab = explorerFiles[pathName];
-      if (openTab) {
-        return [pathName];
-      }
+  const [openFiles, setOpenFiles] = useState<Array<keyof typeof explorerFiles>>(() => {
+    if (pathName && pathName !== '/') {
+      return [pathName];
     }
 
     return [];
@@ -32,7 +28,7 @@ export function OpenFilesProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    setOpenFiles([...openFiles, file]);
+    setOpenFiles(state => [...state, file]);
   };
 
   const closeFile = (fileIndex: number) => {
@@ -40,13 +36,15 @@ export function OpenFilesProvider({ children }: { children: React.ReactNode }) {
     setOpenFiles(newOpenFiles);
   };
 
-  const currentOpenFile = () => {
+  const currentOpenFile = useMemo(() => {
     const openFileHref = openFiles.find((openFile) => pathName === openFile);
+  
     if (openFileHref) {
       return explorerFiles[openFileHref];
     }
+    
     return null;
-  };
+  }, [openFiles, pathName])
 
   return (
     <OpenFilesContext.Provider
