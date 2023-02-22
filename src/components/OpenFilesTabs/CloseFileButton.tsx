@@ -36,7 +36,7 @@ export function CloseFileButton({ isActive, index }: CloseFileButtonProps) {
         e.stopPropagation();
         closeFile(index);
       }}
-      className="w-[20px] h-[20px] flex justify-center items-center rounded hover:bg-[#817c9c26]"
+      className="w-[20px] h-[20px] flex justify-center items-center rounded hover:bg-[#817c9c26] cursor-pointer"
     >
       <X
         data-active={isActive}

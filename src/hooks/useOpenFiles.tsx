@@ -7,7 +7,7 @@ type OpenFilesContextProps = {
   openFiles: string[];
   markFileAsOpen: (tab: string) => void;
   closeFile: (tabIndex: number) => void;
-  currentOpenFile: FileType | null;
+  currentOpenFile: () => FileType | null;
 };
 
 const OpenFilesContext = createContext({} as OpenFilesContextProps);
@@ -28,7 +28,7 @@ export function OpenFilesProvider({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    setOpenFiles(state => [...state, file]);
+    setOpenFiles([...openFiles, file]);
   };
 
   const closeFile = (fileIndex: number) => {
@@ -36,15 +36,13 @@ export function OpenFilesProvider({ children }: { children: React.ReactNode }) {
     setOpenFiles(newOpenFiles);
   };
 
-  const currentOpenFile = useMemo(() => {
+  const currentOpenFile = () => {
     const openFileHref = openFiles.find((openFile) => pathName === openFile);
-  
     if (openFileHref) {
       return explorerFiles[openFileHref];
     }
-    
     return null;
-  }, [openFiles, pathName])
+  };
 
   return (
     <OpenFilesContext.Provider
