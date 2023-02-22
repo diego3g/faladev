@@ -1,56 +1,81 @@
-import { Code2, Cog, Cpu, FileJson, Film, Joystick, MoreHorizontal, Terminal } from "lucide-react";
-import { File } from "./File";
-import { Folder } from "./Folder";
+"use client"
+
+import {
+  Cog,
+  Cpu,
+  FileJson,
+  Joystick,
+  MoreHorizontal,
+  Terminal,
+} from "lucide-react"
+import { FolderStructure } from "./FolderStructure"
+
+const folderStructure = [
+  {
+    title: "Visual Studio Code",
+    files: [
+      {
+        name: "settings.json",
+        url: "/vscode/settings",
+        icon: FileJson,
+      },
+      {
+        name: "extensions.json",
+        url: "/vscode/extensions",
+        icon: FileJson,
+      },
+    ],
+  },
+  {
+    title: "Terminal",
+    files: [
+      {
+        name: "dev.setup",
+        url: "/terminal/general",
+        icon: Terminal,
+      },
+      {
+        name: "config.fish",
+        url: "/terminal/fish",
+        icon: Cog,
+      },
+    ],
+  },
+  {
+    title: "Others",
+    files: [
+      {
+        name: "dev.setup",
+        url: "/others/dev-setup",
+        icon: Cpu,
+      },
+      {
+        name: "gaming.setup",
+        url: "/others/gaming-setup",
+        icon: Joystick,
+      },
+    ],
+  },
+]
 
 export function Explorer() {
   return (
     <div className="py-2 px-4 text-[#8F8CA8]">
-      <strong className="font-medium text-xs pl-2 flex items-center justify-between">
+      <strong className="font-medium text-xs pl-2 flex items-center justify-between uppercase">
         EXPLORER
         <MoreHorizontal size={16} strokeWidth={1.5} />
       </strong>
 
       <nav className="mt-4 flex flex-col">
-        <Folder defaultOpen title="Visual Studio Code">
-          {/* <File href="/vscode/general">
-            <Code2 size={16} />
-            General
-          </File> */}
-          <File href="/vscode/settings">
-            <FileJson size={16} />
-            settings.json
-          </File>
-          <File href="/vscode/extensions">
-            <FileJson size={16} />
-            extensions.json
-          </File>
-        </Folder>
-
-        <Folder title="Terminal">
-          <File href="/terminal/general">
-            <Terminal size={16} />
-            General
-          </File>
-          <File href="/terminal/fish">
-            <Cog size={16} />
-            config.fish
-          </File>
-        </Folder>
-
-        <Folder title="Others">
-          <File href="/others/dev-setup">
-            <Cpu size={16} />
-            dev.setup
-          </File>
-          <File href="/others/gaming-setup">
-            <Joystick size={16} />
-            gaming.setup
-          </File>
-          {/* <File href="/others/recording-setup">
-            <Film size={16} />
-            recording.setup
-          </File> */}
-        </Folder>
+        {folderStructure.map((folder) => {
+          return (
+            <FolderStructure
+              key={folder.title}
+              title={folder.title}
+              files={folder.files}
+            />
+          )
+        })}
       </nav>
     </div>
   )
