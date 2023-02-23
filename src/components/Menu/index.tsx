@@ -15,7 +15,7 @@ export function Menu() {
   }
 
   return (
-    <div className="min-w-[3.5rem] bg-[#232135] flex flex-col justify-between z-20">
+    <div className="h-full min-w-[3.5rem] bg-[#232135] flex flex-col justify-between z-20">
       <div className="flex flex-col">
         <MenuButton icon={Files} isActive onClick={changeVisibilityExplorer} />
         <MenuButton icon={Search} />
