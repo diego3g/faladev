@@ -30,7 +30,7 @@ const folderStructure = [
     title: "Terminal",
     files: [
       {
-        name: "dev.setup",
+        name: "General",
         url: "/terminal/general",
         icon: Terminal,
       },
