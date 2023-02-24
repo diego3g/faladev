@@ -1,5 +1,6 @@
 import { CodePreview } from '@/components/CodePreview'
 import { getCodeBlockFromNotion } from '@/lib/notion-client'
+import { getNotionPagesId } from '@/lib/vercel-edge-config'
 import shiki from 'shiki'
 
 export const metadata = {
@@ -25,10 +26,11 @@ export const metadata = {
 
 // That's it, nothing more.
 // `.trim()
- 
+
 export default async function GamingSetup() {
-  const { content } = await getCodeBlockFromNotion("1e3d4fc933cf4d30917acf99437e3a83")
-  
+  const { gamingSetup } = await getNotionPagesId()
+  const { content } = await getCodeBlockFromNotion(gamingSetup)
+
   const highlighter = await shiki.getHighlighter({
     theme: 'rose-pine-moon',
   })

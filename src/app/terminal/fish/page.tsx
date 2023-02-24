@@ -1,5 +1,6 @@
 import { CodePreview } from '@/components/CodePreview'
 import { getCodeBlockFromNotion } from '@/lib/notion-client'
+import { getNotionPagesId } from '@/lib/vercel-edge-config'
 import shiki from 'shiki'
 
 export const metadata = {
@@ -18,7 +19,8 @@ export const metadata = {
 // # alias cat="bat --theme=\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"`
 
 export default async function FishConfig() {
-  const { content } = await getCodeBlockFromNotion("801ef0fa04c542ec828881fb41382537")
+  const { fish } = await getNotionPagesId()
+  const { content } = await getCodeBlockFromNotion(fish)
 
   const highlighter = await shiki.getHighlighter({
     theme: 'rose-pine-moon',

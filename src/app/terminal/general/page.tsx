@@ -1,5 +1,6 @@
 import { CodePreview } from '@/components/CodePreview'
 import { getCodeBlockFromNotion } from '@/lib/notion-client'
+import { getNotionPagesId } from '@/lib/vercel-edge-config'
 import shiki from 'shiki'
 
 
@@ -29,8 +30,9 @@ export const metadata = {
 // `.trim()
 
 export default async function General() {
-  const { content } = await getCodeBlockFromNotion("19308817500d4b3ca1f48b4b928911be")
-  
+  const { general } = await getNotionPagesId()
+  const { content } = await getCodeBlockFromNotion(general)
+
   const highlighter = await shiki.getHighlighter({
     theme: 'rose-pine-moon',
   })
