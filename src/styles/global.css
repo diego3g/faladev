@@ -20,3 +20,7 @@ code .line::before {
   text-align: right;
   color: #8F8CA8;
 }
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
