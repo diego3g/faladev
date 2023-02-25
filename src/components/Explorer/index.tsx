@@ -54,14 +54,14 @@ export const explorerFiles: Record<string, FileType> = {
 }
 
 // NOTE: We're using it to pass the file path into files array
-const newFolderStructure = Object.entries(explorerFiles).map(([path, item]) => {
+const newFolderStructure = Object.entries(explorerFiles).map(([path, file]) => {
   return {
-    title: item.folder,
+    title: file.folder,
     files: [
       {
         path,
-        name: item.title,
-        icon: item.icon,
+        name: file.title,
+        icon: file.icon,
       },
     ],
   }
@@ -70,10 +70,10 @@ const newFolderStructure = Object.entries(explorerFiles).map(([path, item]) => {
 export function Explorer() {
   const folderStructureGrouped = _.groupBy(newFolderStructure, 'title')
   const folderStructure = Object.entries(folderStructureGrouped).map(
-    ([title, item]) => {
+    ([title, files]) => {
       return {
         title,
-        files: item.map(({ files }) => files[0]),
+        files: files.map(({ files }) => files[0]),
       }
     },
   )
