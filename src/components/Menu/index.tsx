@@ -10,7 +10,7 @@ import { useAtom } from 'jotai'
 export function Menu() {
   const setIsExplorerOpen = useSetAtom(isExplorerOpenAtom)
 
-  function changeVisibilityExplorer() {
+  function toggleExplorerVisibility() {
     setIsExplorerOpen((state) => !state)
   }
 
