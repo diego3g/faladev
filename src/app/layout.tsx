@@ -28,16 +28,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={inter.className}>
       <head />
       <body className="bg-[#7F7FD5] bg-app overflow-hidden">
-        <div className="h-full flex items-center justify-center p-8">
+        <div className="h-full flex items-center justify-center p-4">
           <div className="h-full bg-[#232135] overflow-hidden border border-[#72707D] w-full max-w-[1480px] shadow-md shadow-black/20 rounded-lg grid grid-rows-layout">
             <OpenFilesProvider>
               <Header />
 
-              <div className="flex items-start">
+              <div className="flex items-start overflow-x-auto">
                 <Menu />
                 <Explorer />
 
-                <div className="flex-1 h-full relative">
+                <div className="w-full h-full flex flex-col overflow-x-auto">
                   <OpenFilesTabs />
                   <div className="h-full relative">{children}</div>
                 </div>
