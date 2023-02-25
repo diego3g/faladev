@@ -5,7 +5,7 @@ import { Bug, Cog, Files, FlaskConical, GitFork, Monitor, Puzzle, Search } from 
 import { MenuButton } from './MenuButton'
 import { SocialLinksMenuButton } from './SocialLinksMenuButton'
 import { isExplorerOpenAtom } from '@/store/explorerStore'
-import { useAtom } from 'jotai'
+import { useAtom, useSetAtom } from 'jotai'
 
 export function Menu() {
   const setIsExplorerOpen = useSetAtom(isExplorerOpenAtom)
@@ -17,7 +17,7 @@ export function Menu() {
   return (
     <div className="h-full min-w-[3.5rem] bg-[#232135] flex flex-col justify-between z-20">
       <div className="flex flex-col">
-        <MenuButton icon={Files} isActive onClick={changeVisibilityExplorer} />
+        <MenuButton icon={Files} isActive onClick={toggleExplorerVisibility} />
         <MenuButton icon={Search} />
         <MenuButton icon={GitFork} />
         <MenuButton icon={Bug} />
