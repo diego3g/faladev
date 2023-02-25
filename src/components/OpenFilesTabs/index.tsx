@@ -28,7 +28,7 @@ export function OpenFilesTabs() {
             className="h-full flex items-center gap-[6px] pl-[10px] hover:bg-[#817c9c26] hover:text-[#908caa] data-[active=true]:bg-[#817c9c14] data-[active=true]:text-white"
           >
             <Link href={openFile} className="flex gap-[6px] items-center ">
-              <span className="text-white">{file.icon}</span>
+              <span className="text-white">{<file.icon size={16} />}</span>
               <span
                 data-active={isActive}
                 className="text-[#908caa] data-[active=true]:text-[#e0def4] "
