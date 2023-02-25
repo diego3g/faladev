@@ -48,7 +48,7 @@ interface ShortcutProps {
 
 const Shortcut = (props: ShortcutProps) => {
   return (
-    <div className="bg-[#35314c] text-[#766591] px-1 text-[11px] rounded-sm mx-0.5">
+    <div className="bg-[#35314c] text-[#8673a3] px-1 text-[11px] rounded-sm mx-0.5">
       <p>{props.children}</p>
     </div>
   )
