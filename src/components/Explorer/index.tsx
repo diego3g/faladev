@@ -1,47 +1,50 @@
-import {
-  Code2,
-  Cog,
-  Cpu,
-  FileJson,
-  Film,
-  Joystick,
-  MoreHorizontal,
-  Terminal,
-} from 'lucide-react';
-import { OpenFilesSubMenu } from '../OpenFilesTabs/OpenFilesSubMenu';
-import { File } from './File';
-import { Folder } from './Folder';
-import { SubMenu } from './SubMenu';
+'use client'
+
+import { isExplorerOpenAtom } from '@/store/explorerStore'
+import classNames from 'classnames'
+import { useAtom } from 'jotai'
+
+import { Code2, Cog, Cpu, FileJson, Film, Joystick, MoreHorizontal, Terminal } from 'lucide-react'
+import { OpenFilesSubMenu } from '../OpenFilesTabs/OpenFilesSubMenu'
+import { File } from './File'
+import { Folder } from './Folder'
+import { SubMenu } from './SubMenu'
 
 export type FileType = {
-  title: string;
-  icon: React.ReactNode;
-};
+  title: string
+  icon: React.ReactNode
+}
 
 export const explorerFiles: Record<string, FileType> = {
-  "/vscode/settings": {
+  '/vscode/settings': {
     icon: <FileJson size={16} />,
-    title: "settings.json",
+    title: 'settings.json',
   },
-  "/vscode/extensions": {
+  '/vscode/extensions': {
     icon: <FileJson size={16} />,
-    title: "extensions.json",
+    title: 'extensions.json',
   },
-  "/terminal/general": {
+  '/terminal/general': {
     icon: <Terminal size={16} />,
-    title: "General",
+    title: 'General',
   },
-  "/terminal/fish": { icon: <Cog size={16} />, title: "config.fish" },
-  "/others/dev-setup": { icon: <Cpu size={16} />, title: "dev.setup" },
-  "/others/gaming-setup": {
+  '/terminal/fish': { icon: <Cog size={16} />, title: 'config.fish' },
+  '/others/dev-setup': { icon: <Cpu size={16} />, title: 'dev.setup' },
+  '/others/gaming-setup': {
     icon: <Joystick size={16} />,
-    title: "gaming.setup",
+    title: 'gaming.setup',
   },
-};
+}
 
 export function Explorer() {
+  const [isExplorerOpen] = useAtom(isExplorerOpenAtom)
+
   return (
-    <div className="py-2 px-4 text-[#8F8CA8]">
+    <div
+      className={classNames('min-w-[16rem] py-2 px-4 text-[#8F8CA8] translate-x-0 block', {
+        '-translate-x-full hidden': !isExplorerOpen,
+      })}
+    >
       <strong className="font-medium text-xs pl-2 flex items-center justify-between">
         EXPLORER
         <MoreHorizontal size={16} strokeWidth={1.5} />

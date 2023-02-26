@@ -11,7 +11,7 @@ export function OpenFilesTabs() {
   const pathName = usePathname();
 
   return (
-    <div className="h-9 text-transparent text-sm flex flex-row">
+    <div className="h-full max-h-9 text-transparent text-sm flex flex-row overflow-x-scroll scrollbar-none">
       {openFiles?.map((openFile, index) => {
         const isActive = pathName === openFile;
 

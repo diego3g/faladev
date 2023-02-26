@@ -53,7 +53,7 @@ export function SocialLinksMenuButton() {
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
-        <DropdownMenu.Content side='right' className="bg-[#2a273f] z-10 flex flex-col rounded-lg overflow-auto">
+          <DropdownMenu.Content  side='right' className="w-full max-h-[200px] bg-[#2a273f] z-50 flex flex-col rounded-lg overflow-y-auto scrollbar-none">
           {socialLinks.map(socialItem => {
             return (
               <DropdownMenu.Item key={socialItem.url} className="outline-none">

@@ -14,7 +14,7 @@ import { OpenFilesProvider } from '@/hooks/useOpenFiles'
 export const metadata = {
   title: {
     default: 'Diego Fernandes',
-    template: '%s | Diego Fernandes'
+    template: '%s | Diego Fernandes',
   },
   robots: {
     index: true,
@@ -23,25 +23,21 @@ export const metadata = {
   description: "CTO at @Rocketseat. Passionate about education and changing people's lives through programming.",
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.className}>
       <head />
-      <body className="bg-[#7F7FD5] bg-app">
-        <div className="z-10 relative h-screen p-20 flex items-center justify-center">
-          <div className="bg-[#232135] overflow-hidden border border-[#72707D] w-full max-w-[1480px] aspect-video shadow-md shadow-black/20 rounded-lg grid grid-rows-layout">
+      <body className="w-screen h-full bg-[#7F7FD5] bg-app overflow-hidden">
+        <div className="w-full h-full flex items-center justify-center p-4">
+          <div className="h-full bg-[#232135] overflow-hidden border border-[#72707D] w-full max-w-[1480px] shadow-md shadow-black/20 rounded-lg grid grid-rows-layout">
             <OpenFilesProvider>
               <Header />
 
-              <div className="grid grid-cols-editor max-h-full">
+              <div className="flex items-start overflow-x-auto">
                 <Menu />
                 <Explorer />
 
-                <div className="h-full relative flex flex-col">
+                <div className="w-full h-full flex flex-col overflow-x-auto">
                   <OpenFilesTabs />
                   <div className="h-full relative">{children}</div>
                 </div>

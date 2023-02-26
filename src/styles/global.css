@@ -2,9 +2,17 @@
 @tailwind utilities;
 @tailwind components;
 
+html {
+  height: 100%;
+}
+
 code {
   counter-reset: step;
   counter-increment: step 0;
+}
+
+code .line {
+  padding-right: 1.5rem;
 }
 
 code .line::before {
@@ -15,4 +23,8 @@ code .line::before {
   display: inline-block;
   text-align: right;
   color: #8F8CA8;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }

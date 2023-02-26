@@ -5,12 +5,15 @@ specifiers:
   '@radix-ui/react-collapsible': ^1.0.1
   '@radix-ui/react-dropdown-menu': ^2.0.2
   '@radix-ui/react-scroll-area': ^1.0.2
+  '@radix-ui/react-slot': ^1.0.1
   '@types/node': 18.13.0
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
   autoprefixer: ^10.4.13
+  classnames: ^2.3.2
   eslint: 8.33.0
   eslint-config-next: 13.1.6
+  jotai: ^2.0.2
   lucide-react: ^0.112.0
   next: 13.1.7-canary.7
   postcss: ^8.4.21
@@ -28,11 +31,14 @@ dependencies:
   '@radix-ui/react-collapsible': 1.0.1_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-dropdown-menu': 2.0.2_5ndqzdd6t4rivxsukjv3i3ak2q
   '@radix-ui/react-scroll-area': 1.0.2_biqbaboplfbrettd7655fr4n2y
+  '@radix-ui/react-slot': 1.0.1_react@18.2.0
   '@types/node': 18.13.0
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
+  classnames: 2.3.2
   eslint: 8.33.0
   eslint-config-next: 13.1.6_4vsywjlpuriuw3tl5oq6zy5a64
+  jotai: 2.0.2_react@18.2.0
   lucide-react: 0.112.0_react@18.2.0
   next: 13.1.7-canary.7_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
@@ -984,6 +990,10 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
+
+  /classnames/2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: false
 
   /client-only/0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
@@ -1983,6 +1993,18 @@ packages:
 
   /isexe/2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
+    dev: false
+
+  /jotai/2.0.2_react@18.2.0:
+    resolution: {integrity: sha512-0yOked08Swa84LUbBjtj7ZLZrE05n3u50rHeZ+bsT86thUjcy0kFgQz9GmEWhYbQDFoT1G8Ww6edSj/MBJHO4A==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      react: '>=17.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /js-sdsl/4.3.0:
