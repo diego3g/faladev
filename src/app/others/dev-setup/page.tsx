@@ -7,18 +7,9 @@ export const metadata = {
   title: 'Dev Setup',
 }
 
-// const markdown = `
-// # Dev Setup
-
-// - MacBook M1 Max (64gb Memory)
-// - LG 25" UltraWide Display
-
-// That's it, nothing more.
-// `.trim()
-
 export default async function DevSetup() {
-  const { devSetup } = await getNotionPagesId()
-  const { content } = await getCodeBlockFromNotion(devSetup)
+  const { setup_dev } = await getNotionPagesId()
+  const { content } = await getCodeBlockFromNotion(setup_dev)
 
   const highlighter = await shiki.getHighlighter({
     theme: 'rose-pine-moon',
