@@ -4,7 +4,7 @@ import { useState } from "react"
 import { JetBrains_Mono } from "@next/font/google"
 
 import { Copy as CopyIcon, CheckCircle2 as CheckIcon } from "lucide-react"
-import { useAtom } from "jotai"
+import { useAtomValue } from "jotai"
 import { isExplorerOpenAtom } from "@/store/explorerStore"
 
 const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] })
@@ -16,7 +16,7 @@ interface CodePreviewProps {
 
 export function CodePreview({ code, raw }: CodePreviewProps) {
   const [hasCopiedToClipboard, setCopiedToClipboard] = useState(false)
-  const [isExplorerOpen] = useAtom(isExplorerOpenAtom)
+  const isExplorerOpen = useAtomValue(isExplorerOpenAtom)
 
   const showButtonCopyToCliboard = raw && !isExplorerOpen
   const notCopied = !hasCopiedToClipboard && !isExplorerOpen
