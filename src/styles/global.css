@@ -2,6 +2,10 @@
 @tailwind utilities;
 @tailwind components;
 
+html {
+  height: 100%;
+}
+
 code {
   counter-reset: step;
   counter-increment: step 0;
