@@ -3,6 +3,7 @@ import { getCodeBlockFromNotion } from '@/lib/notion-client'
 import { getNotionPagesId } from '@/lib/vercel-edge-config'
 import shiki from 'shiki'
 
+export const revalidate = 1800 // revalidate every 30 minutes
 export const metadata = {
   title: 'Gaming Setup',
 }
