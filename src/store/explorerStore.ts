@@ -2,4 +2,4 @@
 
 import { atom } from 'jotai'
 
-export const isExplorerOpenAtom = atom(false)
+export const isExplorerOpenAtom = atom<boolean | null>(null)

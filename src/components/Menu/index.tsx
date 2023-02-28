@@ -4,14 +4,20 @@ import { Bug, Cog, Files, FlaskConical, GitFork, Monitor, Puzzle, Search } from 
 
 import { MenuButton } from './MenuButton'
 import { SocialLinksMenuButton } from './SocialLinksMenuButton'
+import { useAtom } from 'jotai'
 import { isExplorerOpenAtom } from '@/store/explorerStore'
-import { useAtom, useSetAtom } from 'jotai'
 
 export function Menu() {
-  const setIsExplorerOpen = useSetAtom(isExplorerOpenAtom)
+  const [isExplorerOpen, setIsExplorerOpen] = useAtom(isExplorerOpenAtom)
 
   function toggleExplorerVisibility() {
-    setIsExplorerOpen((state) => !state)
+    const isExplorerOpenByDefault = isExplorerOpen === null && window.matchMedia("(min-width: 768px)").matches
+
+    if (!isExplorerOpenByDefault) {
+      return setIsExplorerOpen((state) => !state)
+    }
+
+    setIsExplorerOpen(false)
   }
 
   return (

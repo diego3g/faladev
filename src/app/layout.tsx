@@ -25,7 +25,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" style={inter.style} className="h-full">
       <head />
       <body className="w-screen h-full bg-[#7F7FD5] bg-app overflow-hidden">
         <div className="w-full h-full flex items-center justify-center p-4">

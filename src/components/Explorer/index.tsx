@@ -2,7 +2,7 @@
 
 import { isExplorerOpenAtom } from '@/store/explorerStore'
 import classNames from 'classnames'
-import { useAtom } from 'jotai'
+import { useAtomValue } from 'jotai'
 
 import { Code2, Cog, Cpu, FileJson, Film, Joystick, MoreHorizontal, Terminal } from 'lucide-react'
 import { OpenFilesSubMenu } from '../OpenFilesTabs/OpenFilesSubMenu'
@@ -37,12 +37,14 @@ export const explorerFiles: Record<string, FileType> = {
 }
 
 export function Explorer() {
-  const [isExplorerOpen] = useAtom(isExplorerOpenAtom)
+  const isExplorerOpen = useAtomValue(isExplorerOpenAtom)
 
   return (
     <div
-      className={classNames('min-w-[16rem] py-2 px-4 text-[#8F8CA8] translate-x-0 block', {
-        '-translate-x-full hidden': !isExplorerOpen,
+      className={classNames('min-w-[16rem] py-2 px-4 text-[#8F8CA8]', {
+        block: isExplorerOpen,
+        hidden: isExplorerOpen === false,
+        'hidden min-[768px]:block': isExplorerOpen === null
       })}
     >
       <strong className="font-medium text-xs pl-2 flex items-center justify-between">
