@@ -25,7 +25,7 @@ export function MenuButton({
     <Component
       {...rest}
       data-active={isActive}
-      className="h-12 flex justify-center items-center border-l-2 border-transparent min-[868px]:data-[active=true]:border-[#E0DEF2] data-[active=true]:text-[#E0DEF2] text-[#8F8CA8] cursor-pointer"
+      className="h-12 flex justify-center items-center border-l-2 border-transparent min-[868px]:data-[active=true]:border-[#E0DEF2] data-[active=true]:text-[#E0DEF2] text-[#8F8CA8]"
     >
       <Slottable>
         {children}

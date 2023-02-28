@@ -24,7 +24,7 @@ export function Menu() {
     <div className="h-full min-w-[3.5rem] bg-[#232135] flex flex-col justify-between z-20">
       <div className="flex flex-col">
         <MenuButton icon={Files} asChild>
-          <button onClick={toggleExplorerVisibility} />
+          <button  className='cursor-pointer' onClick={toggleExplorerVisibility} />
         </MenuButton>
         <MenuButton icon={Search} />
         <MenuButton icon={GitFork} />
