@@ -31,8 +31,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <head />
-      <body className="bg-[#7F7FD5] bg-app">
-        <div className="z-10 relative h-screen p-20 flex items-center justify-center">
+      <body className="bg-[#7F7FD5] bg-app overflow-hidden">
+        <div className="z-10 relative h-screen p-20 xl:p-40 flex items-center justify-center">
           <div className="bg-[#232135] overflow-hidden border border-[#72707D] w-full max-w-[1480px] aspect-video shadow-md shadow-black/20 rounded-lg grid grid-rows-layout">
             <OpenFilesProvider>
               <Header />

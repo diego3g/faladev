@@ -48,7 +48,7 @@ const socialLinks = [
 export function SocialLinksMenuButton() {
   return (
     <DropdownMenu.Root>
-      <DropdownMenu.Trigger aria-label="Redes sociais">
+      <DropdownMenu.Trigger aria-label="Redes sociais" className='px-2'>
         <MenuButton icon={User} />
       </DropdownMenu.Trigger>
 
