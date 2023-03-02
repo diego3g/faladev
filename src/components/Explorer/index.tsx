@@ -1,6 +1,3 @@
-'use client'
-
-import _ from 'lodash'
 import {
   Cog,
   Cpu,
@@ -8,76 +5,72 @@ import {
   Joystick,
   MoreHorizontal,
   Terminal,
-  type LucideIcon,
 } from 'lucide-react'
+import { type ReactNode } from 'react'
 import { OpenFilesSubMenu } from '../OpenFilesTabs/OpenFilesSubMenu'
 import { FolderStructure } from './FolderStructure'
 import { SubMenu } from './SubMenu'
 
-export type FileType = {
-  folder: string
+export type ExplorerFiles = {
+  name: string
+  path: string
+  icon: ReactNode
+}
+
+export type ExplorerFolder = {
   title: string
-  icon: LucideIcon
+  files: ExplorerFiles[]
 }
 
-export const explorerFiles: Record<string, FileType> = {
-  '/vscode/settings': {
-    folder: 'Visual Studio Code',
-    title: 'settings.json',
-    icon: FileJson,
-  },
-  '/vscode/extensions': {
-    folder: 'Visual Studio Code',
-    title: 'extensions.json',
-    icon: FileJson,
-  },
-  '/terminal/general': {
-    folder: 'Terminal',
-    title: 'General',
-    icon: Terminal,
-  },
-  '/terminal/fish': {
-    folder: 'Terminal',
-    title: 'config.fish',
-    icon: Cog,
-  },
-  '/others/dev-setup': {
-    folder: 'Others',
-    title: 'dev.setup',
-    icon: Cpu,
-  },
-  '/others/gaming-setup': {
-    folder: 'Others',
-    title: 'gaming.setup',
-    icon: Joystick,
-  },
-}
-
-// NOTE: We're using it to pass the file path into files array
-const newFolderStructure = Object.entries(explorerFiles).map(([path, file]) => {
-  return {
-    title: file.folder,
+export const explorerFolderStructure: ExplorerFolder[] = [
+  {
+    title: 'Visual Studio Code',
     files: [
       {
-        path,
-        name: file.title,
-        icon: file.icon,
+        name: 'settings.json',
+        path: '/vscode/settings',
+        icon: <FileJson size={16} />,
+      },
+      {
+        name: 'extensions.json',
+        path: '/vscode/extensions',
+        icon: <FileJson size={16} />,
       },
     ],
-  }
-})
+  },
+  {
+    title: 'Terminal',
+    files: [
+      {
+        name: 'General',
+        path: '/terminal/general',
+        icon: <Terminal size={16} />,
+      },
+      {
+        name: 'config.fish',
+        path: '/terminal/fish',
+        icon: <Cog size={16} />,
+      },
+    ],
+  },
+  {
+    title: 'Others',
+    files: [
+      {
+        name: 'dev.setup',
+        path: '/others/dev-setup',
+        icon: <Cpu size={16} />,
+      },
+      {
+        name: 'gaming.setup',
+        path: '/others/gaming-setup',
+        icon: <Joystick size={16} />,
+      },
+    ],
+  },
+]
 
 export function Explorer() {
-  const folderStructureGrouped = _.groupBy(newFolderStructure, 'title')
-  const folderStructure = Object.entries(folderStructureGrouped).map(
-    ([title, files]) => {
-      return {
-        title,
-        files: files.map(({ files }) => files[0]),
-      }
-    },
-  )
-
   return (
     <div className="py-2 px-4 text-[#8F8CA8]">
       <strong className="font-medium text-xs pl-2 flex items-center justify-between uppercase">
@@ -91,12 +84,12 @@ export function Explorer() {
         </SubMenu>
 
         <SubMenu defaultOpen title="FALA-DEV">
-          {folderStructure.map((folder) => {
+          {explorerFolderStructure.map((explorerFolder) => {
             return (
               <FolderStructure
-                key={folder.title}
-                title={folder.title}
-                files={folder.files}
+                key={explorerFolder.title}
+                title={explorerFolder.title}
+                files={explorerFolder.files}
               />
             )
           })}

@@ -1,51 +1,65 @@
-"use client";
-import { createContext, useContext, useMemo, useState } from "react";
-import { usePathname } from "next/navigation";
-import { explorerFiles, FileType } from "@/components/Explorer";
+'use client'
+
+import { ExplorerFiles, explorerFolderStructure } from '@/components/Explorer'
+import { getCurrentFile } from '@/utils/getCurrentFile'
+import { usePathname } from 'next/navigation'
+import { createContext, useContext, useState } from 'react'
 
 type OpenFilesContextProps = {
-  openFiles: string[];
-  markFileAsOpen: (tab: string) => void;
-  closeFile: (tabIndex: number) => void;
-  currentOpenFile: () => FileType | null;
-};
+  openFiles: string[]
+  markFileAsOpen: (tab: string) => void
+  closeFile: (tabIndex: number) => void
+  currentOpenFile: () => ExplorerFiles | null
+}
 
-const OpenFilesContext = createContext({} as OpenFilesContextProps);
+const OpenFilesContext = createContext({} as OpenFilesContextProps)
 
 export function OpenFilesProvider({ children }: { children: React.ReactNode }) {
-  const pathName = usePathname();
+  const pathName = usePathname()
 
   const [openFiles, setOpenFiles] = useState<string[]>(() => {
     if (pathName) {
-      const openTab = explorerFiles[pathName];
+      const openTab = getCurrentFile({
+        explorerFolderStructure,
+        openFile: pathName,
+      })
+
       if (openTab) {
-        return [pathName];
+        return [pathName]
       }
     }
 
-    return [];
-  });
-  
+    return []
+  })
+
   const markFileAsOpen = (file: string) => {
     if (openFiles.includes(file)) {
-      return;
+      return
     }
 
-    setOpenFiles([...openFiles, file]);
-  };
+    setOpenFiles([...openFiles, file])
+  }
 
   const closeFile = (fileIndex: number) => {
-    const newOpenFiles = openFiles.filter((_, index) => index !== fileIndex);
-    setOpenFiles(newOpenFiles);
-  };
+    const newOpenFiles = openFiles.filter((_, index) => index !== fileIndex)
+    setOpenFiles(newOpenFiles)
+  }
 
   const currentOpenFile = () => {
-    const openFileHref = openFiles.find((openFile) => pathName === openFile);
+    const openFileHref = openFiles.find((openFile) => pathName === openFile)
+
     if (openFileHref) {
-      return explorerFiles[openFileHref];
+      const file =
+        getCurrentFile({
+          explorerFolderStructure,
+          openFile: openFileHref,
+        }) ?? null
+
+      return file
     }
-    return null;
-  };
+
+    return null
+  }
 
   return (
     <OpenFilesContext.Provider
@@ -53,9 +67,9 @@ export function OpenFilesProvider({ children }: { children: React.ReactNode }) {
     >
       {children}
     </OpenFilesContext.Provider>
-  );
+  )
 }
 
 export function useOpenFiles(): OpenFilesContextProps {
-  return useContext(OpenFilesContext);
+  return useContext(OpenFilesContext)
 }

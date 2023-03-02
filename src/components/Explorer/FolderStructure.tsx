@@ -1,14 +1,15 @@
-import type { LucideIcon } from 'lucide-react'
+'use client'
 import { usePathname } from 'next/navigation'
+import { type ReactNode } from 'react'
 import { File } from './File'
 import { Folder } from './Folder'
 
 interface FolderStructureProps {
   title: string
   files: {
-		name: string
+    name: string
     path: string
-    icon: LucideIcon
+    icon: ReactNode
   }[]
 }
 
@@ -22,7 +23,7 @@ export function FolderStructure({ title, files }: FolderStructureProps) {
       {files.map((file) => {
         return (
           <File key={file.path} href={file.path}>
-            <file.icon size={16} />
+            {file.icon}
             {file.name}
           </File>
         )

@@ -1,22 +1,28 @@
 'use client'
+
 import { useOpenFiles } from '@/hooks/useOpenFiles'
-import { CloseFileButton } from './CloseFileButton'
-import { usePathname } from 'next/navigation'
+import { getCurrentFile } from '@/utils/getCurrentFile'
 import Link from 'next/link'
-import { explorerFiles } from '../Explorer'
+import { usePathname } from 'next/navigation'
+import { explorerFolderStructure } from '../Explorer'
+import { CloseFileButton } from './CloseFileButton'
 
 export function OpenFilesSubMenu() {
-  const { openFiles } = useOpenFiles();
-  const pathName = usePathname();
+  const { openFiles } = useOpenFiles()
+  const pathName = usePathname()
+
   return (
     <>
       {openFiles.map((openFile, index) => {
-        const isCurrentActive = pathName === openFile;
+        const isCurrentActive = pathName === openFile
 
-        const file = explorerFiles[openFile];
+        const file = getCurrentFile({
+          explorerFolderStructure,
+          openFile,
+        })
 
         if (!file) {
-          return <></>;
+          return <></>
         }
 
         return (
@@ -33,8 +39,8 @@ export function OpenFilesSubMenu() {
                 data-active={isCurrentActive}
                 className={`flex text-sm items-center gap-2 text-[#908caa] data-[active=true]:text-[#E0DEF2]`}
               >
-                {<file.icon size={16} />}
-                {file.title}
+                {file.icon}
+                {file.name}
               </div>
             </Link>
           </div>
