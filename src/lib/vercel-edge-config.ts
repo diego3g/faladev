@@ -6,6 +6,7 @@ const notionPagesIdStore = z.object({
   terminal_fish: z.string(),
   setup_dev: z.string(),
   setup_gaming: z.string(),
+  others_tools: z.string(),
 })
 
 export async function getNotionPagesId() {
