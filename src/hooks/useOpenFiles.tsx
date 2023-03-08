@@ -2,6 +2,7 @@
 
 import { ExplorerFiles, explorerFolderStructure } from '@/components/Explorer'
 import { getCurrentFile } from '@/utils/getCurrentFile'
+import { isObjectEmpty } from '@/utils/isObjectEmpty'
 import { usePathname } from 'next/navigation'
 import { createContext, useContext, useState } from 'react'
 
@@ -49,11 +50,14 @@ export function OpenFilesProvider({ children }: { children: React.ReactNode }) {
     const openFileHref = openFiles.find((openFile) => pathName === openFile)
 
     if (openFileHref) {
-      const file =
-        getCurrentFile({
-          explorerFolderStructure,
-          openFile: openFileHref,
-        }) ?? null
+      const file = getCurrentFile({
+        explorerFolderStructure,
+        openFile: openFileHref,
+      })
+
+      if (isObjectEmpty(file)) {
+        return null
+      }
 
       return file
     }

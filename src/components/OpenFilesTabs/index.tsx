@@ -2,6 +2,7 @@
 
 import { useOpenFiles } from '@/hooks/useOpenFiles'
 import { getCurrentFile } from '@/utils/getCurrentFile'
+import { isObjectEmpty } from '@/utils/isObjectEmpty'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { explorerFolderStructure } from '../Explorer'
@@ -21,7 +22,7 @@ export function OpenFilesTabs() {
           openFile,
         })
 
-        if (!file) {
+        if (isObjectEmpty(file)) {
           return <></>
         }
 
