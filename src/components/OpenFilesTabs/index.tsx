@@ -23,12 +23,12 @@ export function OpenFilesTabs() {
         })
 
         if (isObjectEmpty(file)) {
-          return <></>
+          return null
         }
 
         return (
           <div
-            key={index}
+            key={file.name}
             data-active={isActive}
             className="h-full flex items-center gap-[6px] pl-[10px] hover:bg-[#817c9c26] hover:text-[#908caa] data-[active=true]:bg-[#817c9c14] data-[active=true]:text-white"
           >
