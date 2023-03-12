@@ -14,5 +14,12 @@ code .line::before {
   margin-right: 1.5rem;
   display: inline-block;
   text-align: right;
-  color: #8F8CA8;
+  color: #8f8ca8;
+}
+
+@layer base {
+  .menu-buttons > .default-active:has(~ a:not([data-active="true"])) {
+    @apply text-[#E0DEF2];
+    @apply border-[#E0DEF2];
+  }
 }

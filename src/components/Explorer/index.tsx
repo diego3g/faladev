@@ -7,11 +7,11 @@ import {
   Joystick,
   MoreHorizontal,
   Terminal,
-} from 'lucide-react';
-import { OpenFilesSubMenu } from '../OpenFilesTabs/OpenFilesSubMenu';
-import { File } from './File';
-import { Folder } from './Folder';
-import { SubMenu } from './SubMenu';
+} from "lucide-react";
+import { OpenFilesSubMenu } from "../OpenFilesTabs/OpenFilesSubMenu";
+import { File } from "./File";
+import { Folder } from "./Folder";
+import { SubMenu } from "./SubMenu";
 
 export type FileType = {
   title: string;
@@ -96,5 +96,5 @@ export function Explorer() {
         </SubMenu>
       </nav>
     </div>
-  )
+  );
 }

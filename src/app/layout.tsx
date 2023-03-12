@@ -1,32 +1,32 @@
-import '../styles/global.css'
+import "../styles/global.css";
 
-import { Inter } from '@next/font/google'
+import { Inter } from "@next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
-import { Menu } from '@/components/Menu'
-import { Header } from '@/components/Header'
-import { Explorer } from '@/components/Explorer'
-import { Footer } from '@/components/Footer'
-import { OpenFilesTabs } from '@/components/OpenFilesTabs'
-import { OpenFilesProvider } from '@/hooks/useOpenFiles'
+import { Menu } from "@/components/Menu";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { OpenFilesTabs } from "@/components/OpenFilesTabs";
+import { OpenFilesProvider } from "@/hooks/useOpenFiles";
 
 export const metadata = {
   title: {
-    default: 'Diego Fernandes',
-    template: '%s | Diego Fernandes'
+    default: "Diego Fernandes",
+    template: "%s | Diego Fernandes",
   },
   robots: {
     index: true,
     follow: true,
   },
-  description: "CTO at @Rocketseat. Passionate about education and changing people's lives through programming.",
-}
+  description:
+    "CTO at @Rocketseat. Passionate about education and changing people's lives through programming.",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" className={inter.className}>
@@ -39,12 +39,7 @@ export default function RootLayout({
 
               <div className="grid grid-cols-editor max-h-full">
                 <Menu />
-                <Explorer />
-
-                <div className="h-full relative flex flex-col">
-                  <OpenFilesTabs />
-                  <div className="h-full relative">{children}</div>
-                </div>
+                {children}
               </div>
             </OpenFilesProvider>
             <Footer />
@@ -52,5 +47,5 @@ export default function RootLayout({
         </div>
       </body>
     </html>
-  )
+  );
 }
