@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import {
   Bug,
   Cog,
@@ -15,18 +15,12 @@ import { SocialLinksMenuButton } from "./SocialLinksMenuButton";
 export function Menu() {
   return (
     <div className="flex flex-col justify-between">
-      <div className="flex flex-col">
-          <MenuButton
-            icon={Files}
-            href="/explorer"
-          />
+      <div className="flex flex-col menu-buttons">
+        <MenuButton icon={Files} href="/" defaultActive />
         <MenuButton icon={Search} />
         <MenuButton icon={GitFork} />
         <MenuButton icon={Bug} />
-          <MenuButton
-            icon={Puzzle}
-            href="/extensions"
-          />
+        <MenuButton icon={Puzzle} href="/extensions" />
         <MenuButton icon={Monitor} />
         <MenuButton icon={FlaskConical} />
       </div>
@@ -35,5 +29,5 @@ export function Menu() {
         <MenuButton icon={Cog} />
       </div>
     </div>
-  )
+  );
 }

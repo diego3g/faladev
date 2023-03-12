@@ -1,3 +1,5 @@
+import "src/styles/extensions-markdown.css";
+import { Metadata } from "next";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -5,18 +7,11 @@ import { DownloadCloud, Verified } from "lucide-react";
 import { ExtensionStars } from "@/components/Extensions/ExtensionStars";
 import { ExtensionsAPIResponseType } from "@/types/extensionsTypes";
 
-import "src/styles/extensions-markdown.css";
+const MARKETPLACE_FILTERTYPE_GET_EXTENSION_BY_UUID = 4;
+const MARKETPLACE_FLAGS_GET_EXTENSION = 950;
 
-export const metadata = {
-  title: "Extenções",
-};
-
-export default async function ExtensionDetails({
-  params,
-}: {
-  params: { extension: string };
-}) {
-  const data = await fetch(
+async function getExtension(extensionId: string) {
+  const extensionDetailsResponse = await fetch(
     "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery",
     {
       headers: {
@@ -27,29 +22,51 @@ export default async function ExtensionDetails({
       body: JSON.stringify({
         filters: [
           {
-            criteria: [{ filterType: 4, value: params.extension }],
+            criteria: [
+              {
+                filterType: MARKETPLACE_FILTERTYPE_GET_EXTENSION_BY_UUID,
+                value: extensionId,
+              },
+            ],
           },
         ],
         assetTypes: [],
-        flags: 950,
+        flags: MARKETPLACE_FLAGS_GET_EXTENSION,
       }),
     }
   );
 
-  const response: ExtensionsAPIResponseType = await data.json();
+  const extensionData: ExtensionsAPIResponseType =
+    await extensionDetailsResponse.json();
 
-  if (!response || !response.results || !response.results[0].extensions || !response.results[0].extensions[0]) {
-    return <div></div>;
+  return extensionData?.results?.[0]?.extensions?.[0];
+}
+
+type ExtensionDetailsProps = {
+  params: { extension: string };
+};
+
+export async function generateMetadata({
+  params,
+}: ExtensionDetailsProps): Promise<Metadata> {
+  const extension = await getExtension(params.extension);
+  return { title: extension.displayName };
+}
+
+export default async function ExtensionDetails({
+  params,
+}: ExtensionDetailsProps) {
+  const extension = await getExtension(params.extension);
+
+  const extensionDetailsURL = extension.versions[0].files.find(
+    (file) =>
+      file.assetType === "Microsoft.VisualStudio.Services.Content.Details"
+  )?.source;
+
+  if (!extensionDetailsURL) {
+    throw new Error("Extension details not found.");
   }
-
-  const extension = response.results[0].extensions[0];
-
-  const detailFetch = await fetch(
-    extension.versions[0].files.find(
-      (file) =>
-        file.assetType === "Microsoft.VisualStudio.Services.Content.Details"
-    )?.source ?? ""
-  );
+  const detailFetch = await fetch(extensionDetailsURL);
 
   const detailsText = await detailFetch.text();
 
@@ -117,7 +134,7 @@ export default async function ExtensionDetails({
           <div className="mt-2">
             <Link
               target="_blank"
-              href={`https://marketplace.visualstudio.com/items?itemName=${extension.publisher.publisherName}.${extension.extensionName}`}
+              href={`vscode:extension/${extension.publisher.publisherName}.${extension.extensionName}`}
               className="text-sm py-1 px-2 bg-[#ea9a97] text-[#232136] rounded"
             >
               Install
