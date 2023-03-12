@@ -50,13 +50,17 @@ export async function generateMetadata({
   params,
 }: ExtensionDetailsProps): Promise<Metadata> {
   const extension = await getExtension(params.extension);
-  return { title: extension.displayName };
+  return { title: extension?.displayName };
 }
 
 export default async function ExtensionDetails({
   params,
 }: ExtensionDetailsProps) {
   const extension = await getExtension(params.extension);
+
+  if (!extension) {
+    return <div></div>;
+  }
 
   const extensionDetailsURL = extension.versions[0].files.find(
     (file) =>

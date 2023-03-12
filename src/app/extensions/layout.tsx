@@ -1,7 +1,7 @@
 import { ExtensionItem } from "@/components/Extensions/ExtensionItem";
 import { ExtensionsAPIResponseType } from "@/types/extensionsTypes";
 
-type GistType = {
+export type GistType = {
   identifier: Identifier;
   preRelease: boolean;
   version: string;
@@ -45,7 +45,7 @@ export default async function ExtensionsLayout({
     flags: 950,
   };
 
-  const data = await fetch(
+  const extensionsResponse = await fetch(
     "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery",
     {
       headers: {
@@ -57,12 +57,12 @@ export default async function ExtensionsLayout({
     }
   );
 
-  const response: ExtensionsAPIResponseType = await data.json();
+  const extensionsData: ExtensionsAPIResponseType = await extensionsResponse.json();
 
   return (
     <>
       <div className="overflow-auto scrollbar-thin scrollbar-thumb-[#2B283B] scrollbar-track-transparent">
-        {response.results.map((result) =>
+        {extensionsData.results.map((result) =>
           result.extensions.map((extension) => (
             <ExtensionItem key={extension.extensionId} extension={extension} />
           ))
